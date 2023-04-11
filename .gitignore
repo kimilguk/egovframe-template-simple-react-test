@@ -1,5 +1,5 @@
 #깃 커밋 제외 대상 추가
-/github
+/.github
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
