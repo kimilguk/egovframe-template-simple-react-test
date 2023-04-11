@@ -5,7 +5,7 @@
 - 장점은 백엔드와 프런트엔드 프로젝트를 분리해서 작업할 수 있다.
 ![프런트엔드메인](README/frontend_main.jpg)
 - 참고로, 아래는 백엔드 작업소스 입니다.
-- https://github.com/kimilguk/egovframe-template-simple-react.git
+- https://github.com/kimilguk/egovframe-template-simple-backend
 
 ### 2023.04.11(화)
 - 프런트엔드 원본 소스를 받아서 개발환경에서 실행 하고, 개인 gitignore 수정 후 깃 저장소에 올려보았다.
