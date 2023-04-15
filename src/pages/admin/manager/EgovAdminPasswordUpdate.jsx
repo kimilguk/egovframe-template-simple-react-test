@@ -26,7 +26,7 @@ function EgovAdminPasswordUpdate(props) {
     };
 
     const updateAdminPassword = () => {
-		const editURL = "/admin/uat/uia/updateAdminPassword.do";
+		const editURL = "/uat/esm/updateAdminPassword.do";
         const jToken = localStorage.getItem('jToken');
         let requestOptions ={};
         const formData = new FormData();
