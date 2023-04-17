@@ -67,7 +67,7 @@ import EgovAdminPasswordUpdate from 'pages/admin/manager/EgovAdminPasswordUpdate
 
 import initPage from 'js/ui';
 
-// 에러 페이지와 같은 상단(EgovHeader) 소스가 제외된 페이지에서 자바스크립트 에러가 발생한다. 
+// 에러 페이지와 같은 상단(EgovHeader) 소스가 제외된 페이지에서 ui.js의 햄버거버튼 작동오류가 발생한다. 
 // 즉, ui.js가 작동되지 않아서 재 로딩 해야 한다. 그래서, 이전 페이지 URL을 구하는 코드 추가(아래)
 const usePrevLocation = (location) => {
 	const prevLocRef = useRef(location);
@@ -78,7 +78,7 @@ const usePrevLocation = (location) => {
 }
 
 const RootRoutes = () => {
-	
+  //에러페지시 이전 location 객체를 저장하는 코드 추가(아래 2줄) */}
   const location = useLocation();
   const prevLocation = usePrevLocation(location);
 
