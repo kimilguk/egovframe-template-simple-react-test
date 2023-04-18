@@ -76,15 +76,14 @@ const usePrevLocation = (location) => {
 	},[location]);
 	return prevLocRef.current;
 }
-
+let init; // 아래 로그인 이동 부분이 2번 실행되지 않도록 전역 변수 생성
 const RootRoutes = () => {
   //useLocation객체를 이용하여 에러페이시 이동 전 location 객체를 저장하는 코드 추가(아래 2줄) */}
   const location = useLocation();
   const prevLocation = usePrevLocation(location);
   //시스템관리 메뉴는 /admin/으로 시작하는 URL로 모두 로그인이 필요하도록 코드추가(아래)
-  let init;
   useEffect(() => {
-	if (init) return;
+	if (init) return; // RootRoutes 바로위에 생성한 변수 사용 
     init = true;
 	const sessionUser = sessionStorage.getItem('loginUser');
 	const sessionUserSe = JSON.parse(sessionUser)?.userSe;
@@ -94,7 +93,7 @@ const RootRoutes = () => {
 	    sessionStorage.setItem('loginUser', JSON.stringify({"id":""}));
 	    window.location.href = URL.LOGIN;
 	}
-  },[]);
+  },[location]);
   return (
       <Routes> {/* 에러페지시 호출시 이전 prevUrl객체를 전송하는 코드 추가(아래) */}
         <Route path={URL.ERROR} element={<EgovError prevUrl={prevLocation} />} />
