@@ -81,7 +81,20 @@ const RootRoutes = () => {
   //useLocation객체를 이용하여 에러페이시 이동 전 location 객체를 저장하는 코드 추가(아래 2줄) */}
   const location = useLocation();
   const prevLocation = usePrevLocation(location);
-
+  //시스템관리 메뉴는 /admin/으로 시작하는 URL로 모두 로그인이 필요하도록 코드추가(아래)
+  let init;
+  useEffect(() => {
+	if (init) return;
+    init = true;
+	const sessionUser = sessionStorage.getItem('loginUser');
+	const sessionUserSe = JSON.parse(sessionUser)?.userSe;
+	const regex = /^(\/admin\/)+(.)*$/; //정규표현식 사용
+	if(sessionUserSe !=='USR' && regex.test(location.pathname)) {
+		alert("Login Alert");
+	    sessionStorage.setItem('loginUser', JSON.stringify({"id":""}));
+	    window.location.href = URL.LOGIN;
+	}
+  },[]);
   return (
       <Routes> {/* 에러페지시 호출시 이전 prevUrl객체를 전송하는 코드 추가(아래) */}
         <Route path={URL.ERROR} element={<EgovError prevUrl={prevLocation} />} />
