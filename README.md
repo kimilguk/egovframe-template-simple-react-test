@@ -1,43 +1,3 @@
-# 전자정부표준프레임워크 심플홈페이지 프런트엔드
-- 프런트엔드 원본소스 : https://github.com/eGovFramework/egovframe-template-simple-react
-- 개발환경 : 표준프레임워크 4.1.0 ( https://www.egovframe.go.kr/home/sub.do?menuNo=94 )
-- 위 개발개발환경에서 설치한 기존 심플홈페이지(참조: https://kimilguk.tistory.com/782)보다 경량이다.
-- 장점은 백엔드와 프런트엔드 프로젝트를 분리해서 작업할 수 있다.
-![프런트엔드메인](README/frontend_main.jpg)
-- 참고로, 아래는 백엔드 작업소스 입니다.
-- https://github.com/kimilguk/egovframe-template-simple-backend
-
-### 2023.04.11(화)
-- 프런트엔드 원본 소스를 받아서 개발환경에서 실행 하고, 개인 gitignore 수정 후 깃 저장소에 올려보았다.
-- 원본의 .github 폴더는 깃허브에서 workflow를 사용하는 설정이 있기 때문에 지운다.
-- 참고로, 이클립스에서 최초 커밋 후 아래 2줄은 해당 프로젝트의 이클립스 터미널에서 실행 해 준다.(다음부턴 할 필요 없다.)
-- git branch -M master
-- git remote add origin https://github.com/학생의저장소주소.git
-- 위 전자정부표준프레임워크 개발환경 외 로컬 PC의 리액트 개발환경 설치
-
-```
-1. NVM(노드 버전 매니저) 설치(만약 NVM -v 으로 설치확인이 된다면 이 부분은 넘어간다.)
-- nvm-setup.zip 다운로드 https://github.com/coreybutler/nvm-windows/releases
-- 압축해제 : 압축을 풀면 nvm-setup.exe 파일이 나온다. 이 파일을 실행시키면 nvm이 설치된다.
-- nvm-setup.exe 실행 : 설치 시에 Program File와 같이 띄어쓰기가 있는 경로로 지정하지 말아야한다.
-- nvm 버전 확인 : nvm -v
-2. Node 버전 설치 프로젝트에서 사용된 환경 프로그램 정보는 다음과 같다.
-- 원본 버전: Node.js	v18.12.0
-- 원본 버전: NPM	v8.19.2
-- 다음 명령어를 통해 18.12.0 버전으로 설치해주었다.
-- nvm install v18.12.0
-- nvm에서 특정 Node 버전 활성화
-- nvm use 18.12.0
-- 이렇게 nvm으로 node 버전을 설치하고 활성화까지 해준다.
-- node 버전 확인 : node -v
-- node가 설치되면서 npm도 자동으로 설치된다. 
-- npm 버전 확인 : npm -v
-3. 최초 리액트 앱 실행
-- 리액트 작업 폴더로 이동한다.(이클립스에서 프로젝트 선택 후 Show in -> Termenal 실행하면 자동으로 이동된다.)
-- npm install 로 앱 실행시 필요한 기존에 package.json 에서 지정된 node_modules 를 다운받는다.
-- npm start 로 실행한다. 끝
-```
-
 # 표준프레임워크 심플홈페이지 FrontEnd
 
 ![react](https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black)
@@ -66,7 +26,7 @@
 
 ![sh1](https://user-images.githubusercontent.com/3771788/229040074-cd1015a6-f2f4-482e-a056-974785b47d36.jpg)
 
-1. 홈페이지 템플릿은 관리자만 로긴 가능하다는 전제로 구성되었으며 최초 관리자 계정 설정은 **[ 로그인계정 : admin , 로그인암호 : 1 ]** 로 설정되어 있다.
+1. 홈페이지 템플릿은 관리자만 로그인 가능하다는 전제로 구성되었으며 최초 관리자 계정 설정은 **[ 로그인계정 : admin , 로그인암호 : 1 ]** 로 설정되어 있다.
 2. 관리자 추가 및 변경 기능은 추가 구성되어 있지 않으므로 필요 시 DB를 통해 직접 변경한다. (암호 셋팅 값은 공통컴포넌트의 암호화 로직에 따라 생성해야 함)
 3. 기본 기능이나 예시 메뉴를 실무적으로 추가 커스터마이징하여 활용할 수 있다.
 
