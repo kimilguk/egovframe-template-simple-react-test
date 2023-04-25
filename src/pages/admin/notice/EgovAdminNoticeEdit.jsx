@@ -211,7 +211,7 @@ function EgovAdminNoticeEdit(props) {
                                 <EgovAttachFile
                                     fnChangeFile={(attachfile) => {
                                         console.log("====>>> Changed attachfile file = ", attachfile);
-                                        setBoardDetail({ ...boardDetail, file_1: attachfile });
+                                        setBoardDetail({ ...boardDetail, file_0:attachfile[0],file_1:attachfile[1],file_2:attachfile[2] });
                                     }}
                                     fnDeleteFile={(deletedFile) => {
                                         console.log("====>>> Delete deletedFile = ", deletedFile);
