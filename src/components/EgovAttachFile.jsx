@@ -111,6 +111,7 @@ function EgovAttachFile({ boardFiles, mode, fnChangeFile, fnDeleteFile, posblAtc
                     {(mode === CODE.MODE_CREATE) && <input name="file_0" id="egovComFileUploader" type="file" multiple onChange={e => onChangeFileInput(e)}></input>}
                     {/* 첨부파일 1개 당  filesTag는 3개 요소(span, button, br)를 가진다 */}
                     {(mode === CODE.MODE_MODIFY && (filesTag.length/3 < posblAtchFileNumber)) && <input name="file_0" id="egovComFileUploader" type="file" multiple onChange={e => onChangeFileInput(e)}></input>}
+					현재 업로드 가능한 첨부파일 개수는 {posblAtchFileNumber} 개 입니다.
                 </span>
             </dd>
         </dl>
