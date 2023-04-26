@@ -58,8 +58,8 @@ function EgovAttachFile({ boardFiles, mode, fnChangeFile, fnDeleteFile, posblAtc
 
     function onChangeFileInput(e) {
         console.log("===>>> e = " + e.target.files[0]); // 멀티파일에서는 e.target.files[0] [0]을 제거한다.(아래)
-        if (e.target.files.length > posblAtchFileNumber) {
-		  alert('첨부파일 개수는 '+posblAtchFileNumber+' 까지 입니다.');
+        if (e.target.files.length+(boardFiles?.length||0) > posblAtchFileNumber) {
+		  alert('총 첨부파일 개수는 '+posblAtchFileNumber+' 까지 입니다.');
 		  e.target.value = null; // 파일 입력란 화면 초기화
 		  fnChangeFile({}); // 상위 컴포넌트의 저장된 값 초기화
 		  return false;
@@ -108,10 +108,19 @@ function EgovAttachFile({ boardFiles, mode, fnChangeFile, fnDeleteFile, posblAtc
             <dd>
                 <span className="file_attach">
                     {filesTag}
-                    {(mode === CODE.MODE_CREATE) && <input name="file_0" id="egovComFileUploader" type="file" multiple onChange={e => onChangeFileInput(e)}></input>}
+                    {(mode === CODE.MODE_CREATE) && 
+						<>
+						<input name="file_0" id="egovComFileUploader" type="file" multiple onChange={e => onChangeFileInput(e)}></input>
+						총 업로드 가능한 첨부파일 개수는 {posblAtchFileNumber} 개 입니다.
+						</>
+					}
                     {/* 첨부파일 1개 당  filesTag는 3개 요소(span, button, br)를 가진다 */}
-                    {(mode === CODE.MODE_MODIFY && (filesTag.length/3 < posblAtchFileNumber)) && <input name="file_0" id="egovComFileUploader" type="file" multiple onChange={e => onChangeFileInput(e)}></input>}
-					현재 업로드 가능한 첨부파일 개수는 {posblAtchFileNumber} 개 입니다.
+                    {(mode === CODE.MODE_MODIFY && (filesTag.length/3 < posblAtchFileNumber)) &&
+						<> 
+						<input name="file_0" id="egovComFileUploader" type="file" multiple onChange={e => onChangeFileInput(e)}></input>
+						현재 업로드 가능한 첨부파일 개수는 {posblAtchFileNumber-(filesTag.length/3)} 개 입니다.
+						</>
+					}
                 </span>
             </dd>
         </dl>
