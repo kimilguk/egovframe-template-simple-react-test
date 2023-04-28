@@ -115,7 +115,7 @@ const RootRoutes = () => {
 
   if(mounted) { // 인증 없이 시스템관리 URL로 접근할 때 렌더링 되는 것을 방지하는 조건추가. 
 	  return (
-	      <Routes> {/* 에러페지시 호출시 이전 prevUrl객체를 전송하는 코드 추가(아래) */}
+	      <Routes>
 	        <Route path={URL.ERROR} element={<EgovError />} />
 	        <Route path="*" element={<SecondRoutes/>} />
 	      </Routes>
