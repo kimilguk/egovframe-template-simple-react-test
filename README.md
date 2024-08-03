@@ -1,3 +1,13 @@
+```
+echo "# egovframe-template-simple-react-test" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/kimilguk/egovframe-template-simple-react-test.git
+git push -u origin main
+```
+
 # 표준프레임워크 심플홈페이지 FrontEnd
 
 ![react](https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black)
