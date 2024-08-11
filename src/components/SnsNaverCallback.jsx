@@ -1,12 +1,9 @@
 import React, { useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
 import * as EgovNet from 'api/egovFetch';
 import CODE from 'constants/code';
-import { getSessionItem, setSessionItem } from 'utils/storage';
+import { setSessionItem } from 'utils/storage';
 
-const SnsNaverCallback = (props) => {
-  const navigate = useNavigate();
-  
+const SnsNaverCallback = () => {
   //백엔드 호출
   const callBackEnd = () => {
 	  // 백엔드로 코드값을 넘겨주는 로직
@@ -31,8 +28,8 @@ const SnsNaverCallback = (props) => {
                 	setSessionItem('jToken', jToken);
                     //setLoginVO(resultVO);
                     setSessionItem('loginUser', resultVO);
-                    props.onChangeLogin(resultVO);
-                    navigate(URL.MAIN);
+                    //props.onChangeLogin(resultVO);
+                    window.location.replace("/");
                     // PC와 Mobile 열린메뉴 닫기
                     document.querySelector('.all_menu.WEB').classList.add('closed');
                     document.querySelector('.btnAllMenu').classList.remove('active');

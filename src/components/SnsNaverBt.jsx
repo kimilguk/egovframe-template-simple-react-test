@@ -1,11 +1,6 @@
-import React, { useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
-import * as EgovNet from 'api/egovFetch';
-import CODE from 'constants/code';
-import { setSessionItem } from 'utils/storage';
+import React from "react";
 
 const SnsNaverBt = (props) => {
-  const navigate = useNavigate();
   const NAVER_CLIENT_ID = "osgm3bqYygYV49c1QPWl";//process.env.REACT_APP_NAVER_CLIENT_ID; // 발급받은 클라이언트 아이디
   const REDIRECT_URI = "http://localhost:3000/login/naver/callback"; // Callback URL
   const STATE = "egovframe";
