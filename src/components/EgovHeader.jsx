@@ -7,7 +7,7 @@ import URL from 'constants/url';
 import CODE from 'constants/code';
 import { getSessionItem, setSessionItem } from 'utils/storage';
 
-function EgovHeader() {
+function EgovHeader(props) {
     console.group("EgovHeader");
     console.log("[Start] EgovHeader ------------------------------");
 
@@ -18,6 +18,37 @@ function EgovHeader() {
 
     const navigate = useNavigate();
 
+	const naverLogInHandler = (e) => {
+        console.log("naverLogInHandler()");
+        const naverLoginUrl = "/login/naver"
+        const requestOptions = {
+            method: "GET",
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }
+        EgovNet.requestFetch(naverLoginUrl,
+            requestOptions,
+            (resp) => {
+                let resultVO = resp.resultVO;
+                let jToken = resp?.jToken || null;
+                setSessionItem('jToken', jToken);
+                if (Number(resp.resultCode) === Number(CODE.RCV_SUCCESS)) {
+                    //setLoginVO(resultVO);
+                    setSessionItem('loginUser', resultVO);
+                    props.onChangeLogin(resultVO);
+                    navigate(URL.MAIN);
+                    // PC와 Mobile 열린메뉴 닫기
+                    document.querySelector('.all_menu.WEB').classList.add('closed');
+                    document.querySelector('.btnAllMenu').classList.remove('active');
+                    document.querySelector('.btnAllMenu').title = '전체메뉴 닫힘';
+		            document.querySelector('.all_menu.Mobile').classList.add('closed');
+                } else {
+                    alert(resp.resultMessage)
+                }
+            })
+    }
+    
     const logInHandler = () => { // 로그인 정보 없을 시
         navigate(URL.LOGIN);
 		// PC와 Mobile 열린메뉴 닫기
@@ -97,6 +128,7 @@ function EgovHeader() {
                         <>
                         <button onClick={logInHandler} className="btn login">로그인</button>
                         <NavLink to={URL.MYPAGE_CREATE} className={({ isActive }) => (isActive ? "btn login cur" : "btn login")}>회원가입</NavLink>
+                        <button onClick={naverLogInHandler} className="btn login">네이버로그인</button>
                         </>
                     }
                 </div>
