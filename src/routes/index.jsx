@@ -12,6 +12,7 @@ import EgovError from 'components/EgovError';
 
 import EgovMain from 'pages/main/EgovMain';
 import EgovLogin from 'pages/login/EgovLogin';
+import SnsNaverCallback from 'components/SnsNaverCallback';
 
 //ABOUT
 import EgovAboutSite from 'pages/about/EgovAboutSite';
@@ -149,7 +150,10 @@ const SecondRoutes = () => {
         <Route path={URL.LOGIN} element={<EgovLogin
                 onChangeLogin={(user) => setLoginVO(user)}
               />}/>
-
+        {/* Sns Naver Callback */}
+        <Route path={URL.SNS_NAVER_CB} element={<SnsNaverCallback
+                onChangeLogin={(user) => setLoginVO(user)}
+        	  />}/>
         {/* ERROR */}
         <Route path={URL.ERROR} element={<EgovError />} />
 
