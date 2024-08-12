@@ -35,6 +35,7 @@ const SnsNaverCallback = () => {
                     document.querySelector('.btnAllMenu').classList.remove('active');
                     document.querySelector('.btnAllMenu').title = '전체메뉴 닫힘';
 		            document.querySelector('.all_menu.Mobile').classList.add('closed');
+		            alert("로그인 중...");//공통 alert 사용대신해서
                 } else {
 					window.location.replace("/");
                 }
@@ -42,11 +43,17 @@ const SnsNaverCallback = () => {
       }
   }
   useEffect(callBackEnd,[]);
-
+const style = {
+  position: 'relative',
+  margin: '0',
+  fontSize: '64px',
+  fontWeight: '400',
+  textAlign: 'center',
+}
   return (
 	<>
       {/* 로그인중이라는 것을 표시할 수 있는 로딩중 화면 */}
-      로그인 중...
+      <h1 style={style}>로그인 중...</h1>
     </>
   );
 };
